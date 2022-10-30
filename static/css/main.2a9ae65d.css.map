@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.2a9ae65d.css","mappings":"AAAA,yBACE,cAAe,CACf,eACF","sources":["components/Statistics/Statistics.module.css"],"sourcesContent":[".title {\n  font-size: 24px;\n  font-weight: bold;\n}\n"],"names":[],"sourceRoot":""}
