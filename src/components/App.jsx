@@ -13,21 +13,21 @@ class App extends Component {
   };
 
   Increment = event => {
+    const { name } = event.target;
     this.setState(prevState => ({
-      [event.target.name]: prevState[event.target.name] + 1,
+      [name]: prevState[name] + 1,
     }));
-    console.log(event.target.name);
+    console.log(name);
   };
 
   CountTotalFeedback = () => {
-    return this.state.good + this.state.neutral + this.state.bad;
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
   };
 
   CountPositiveFeedbackPercentage = () => {
-    return Math.round(
-      (this.state.good * 100) /
-        (this.state.good + this.state.neutral + this.state.bad)
-    );
+    const { good, neutral, bad } = this.state;
+    return Math.round((good * 100) / (good + neutral + bad));
   };
 
   render() {
@@ -42,9 +42,9 @@ class App extends Component {
           <p className={css.title}>Statistics</p>
           {good + neutral + bad > 0 ? (
             <Statistics
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
+              good={good}
+              neutral={neutral}
+              bad={bad}
               total={this.CountTotalFeedback()}
               positivePercentage={this.CountPositiveFeedbackPercentage()}
             />
